@@ -1,5 +1,8 @@
 const router = require('express').Router();
 const { Entry } = require('../../models');
+const { getMovie } = require('../../utils/omdbApi');
+const axios = require('axios');
+
 
 // get route all entries
 router.get('/', (req, res) => {
@@ -33,16 +36,25 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    Entry.create({
-        review: req.body.review,
-        rating: req.body.rating,
-        omdb_id: req.body.omdb_id
-    })
-        .then(dbEntryData => res.json(dbEntryData))
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
+    axios.get(`https://www.omdbapi.com/?t=${req.body.searchedTitle}&apikey=${process.env.OMDB_KEY}`)
+        .then(movieData => {
+            console.log(movieData)
+
+            Entry.create({
+                title: movieData.data.Title,
+                director: movieData.data.Director,
+                actors: movieData.data.Actors,
+                poster: movieData.data.Poster,
+                review: req.body.review,
+                rating: req.body.rating
+            })
+                .then(dbEntryData => res.json(dbEntryData))
+                .catch(err => {
+                    console.log(err);
+                    res.status(500).json(err);
+                });
+        })
+    res.sendStatus(200);
 });
 
 // put route single entry

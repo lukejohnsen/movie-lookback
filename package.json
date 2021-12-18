@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/lukejohnsen/movie-lookback#readme",
   "dependencies": {
+    "axios": "^0.24.0",
     "bcrypt": "^5.0.1",
     "connect-session-sequelize": "^7.0.4",
     "dotenv": "^8.6.0",
