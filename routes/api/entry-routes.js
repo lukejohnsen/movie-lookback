@@ -37,7 +37,7 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
     axios.get(`https://www.omdbapi.com/?t=${req.body.searchedTitle}&apikey=${process.env.OMDB_KEY}`)
         .then(movieData => {
-            console.log(movieData)
+            console.log(movieData);
             
             Entry.create({
                 title: movieData.data.Title,
@@ -45,7 +45,8 @@ router.post('/', (req, res) => {
                 actors: movieData.data.Actors,
                 poster: movieData.data.Poster,
                 review: req.body.review,
-                rating: req.body.rating
+                rating: req.body.rating,
+                user_id: req.body.user_id
             })
                 .then(dbEntryData => res.json(dbEntryData))
                 .catch(err => {
@@ -53,7 +54,6 @@ router.post('/', (req, res) => {
                     res.status(500).json(err);
                 });
         })
-    res.sendStatus(200);
 });
 
 // put route single entry
