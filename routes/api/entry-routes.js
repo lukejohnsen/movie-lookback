@@ -43,7 +43,6 @@ router.post('/', (req, res) => {
                 title: movieData.data.Title,
                 director: movieData.data.Director,
                 actors: movieData.data.Actors,
-                poster: movieData.data.Poster,
                 review: req.body.review,
                 rating: req.body.rating,
                 user_id: req.body.user_id
