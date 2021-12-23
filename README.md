@@ -24,6 +24,6 @@ HTML/CSS and JAVASCRIPT
 * [Carl Pastor](https://github.com/carlpastor)
 
 ## Deployed Website
-https://sophiabarrett.github.io/show-finder/
+https://github.com/lukejohnsen/movie-lookback
 
 ## Images
