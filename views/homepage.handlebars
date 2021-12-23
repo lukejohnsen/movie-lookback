@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Lookback</title>
+</head>
+
+<body>
+    <header>
+        <h1>
+            <a href="/">Movie Lookback</a>
+        </h1>
+    </header>
+    {{#if loggedIn}}
+    <nav>
+        <a href="/userpage">My Page</a>
+        <button id="logout" class="btn-no-style">Logout</button>
+        {{else}}
+        <a href="/login">Login</a>
+    </nav>
+    {{/if}}
+</body>
+
+</html>
