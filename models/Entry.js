@@ -23,7 +23,16 @@ Entry.init(
                 max: 5
             }
         },
-        omdb_id: {
+        title: {
+            type: DataTypes.STRING
+        },
+        actors: {
+            type: DataTypes.STRING
+        },
+        director: {
+            type: DataTypes.STRING
+        },
+        poster: {
             type: DataTypes.STRING
         }
     },
