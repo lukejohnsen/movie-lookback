@@ -1,0 +1,32 @@
+<section>
+  <h2>Create New entry</h2>
+
+  <form class="new-entry-form">
+   <div>
+       <label>Movie Title</label>
+       <input type="text">
+   </div>
+   <div>
+       <label>Review</label>
+       <input type="text">
+   </div>
+   <div>
+       <label>Rating</label>
+       <input type="number">
+   </div>
+  </form>
+</section>
+
+{{#if entrys.length}}
+<section>
+  <h2>Your Entries</h2>
+  <ol>
+    {{#each entry as |entry|}}
+    <li>
+      {{> entry-info entry}}
+      <a href="/dashboard/edit/{{entry.id}}" class="edit-link">Edit entry</a>
+    </li>
+    {{/each}}
+  </ol>
+</section>
+{{/if}}
